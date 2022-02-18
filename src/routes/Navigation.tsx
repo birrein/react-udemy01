@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import {
   BrowserRouter,
   Navigate,
@@ -12,32 +13,34 @@ interface Props {}
 
 export const Navigation = (props: Props) => {
   return (
-    <BrowserRouter>
-      <div className="main-layout">
-        <nav>
-          <img src={logo} alt="React logo" />
-          <ul>
-            {routes.map(({ to, name }) => (
-              <li key={to}>
-                <NavLink
-                  to={to}
-                  className={({ isActive }) => (isActive ? 'nav-active' : '')}
-                >
-                  {name}
-                </NavLink>
-              </li>
+    <Suspense fallback={null}>
+      <BrowserRouter>
+        <div className="main-layout">
+          <nav>
+            <img src={logo} alt="React logo" />
+            <ul>
+              {routes.map(({ to, name }) => (
+                <li key={to}>
+                  <NavLink
+                    to={to}
+                    className={({ isActive }) => (isActive ? 'nav-active' : '')}
+                  >
+                    {name}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <Routes>
+            {routes.map(({ path, Component }) => (
+              <Route path={path} element={<Component />} key={path} />
             ))}
-          </ul>
-        </nav>
 
-        <Routes>
-          {routes.map(({ path, Component }) => (
-            <Route path={path} element={<Component />} key={path} />
-          ))}
-
-          <Route path="/*" element={<Navigate to={routes[0].to} replace />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+            <Route path="/*" element={<Navigate to={routes[0].to} replace />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </Suspense>
   );
 };
