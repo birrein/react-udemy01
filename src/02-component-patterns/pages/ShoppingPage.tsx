@@ -4,6 +4,7 @@ import {
   ProductTitle,
   ProductButtons,
 } from '../components';
+import '../styles/custom-styles.css';
 
 const product = {
   id: '1',
@@ -11,8 +12,7 @@ const product = {
   img: './coffee-mug.png',
 };
 
-type Props = {};
-export const ShoppingPage = (props: Props) => {
+export const ShoppingPage = () => {
   return (
     <div>
       <h1>Shopping Page</h1>
@@ -30,10 +30,21 @@ export const ShoppingPage = (props: Props) => {
           <ProductButtons />
         </ProductCard>
 
-        <ProductCard product={product}>
-          <ProductCard.Image />
-          <ProductCard.Title />
-          <ProductCard.Buttons />
+        <ProductCard product={product} className="bg-dark text-white">
+          <ProductCard.Image className="custom-image" />
+          <ProductCard.Title className="text-bold" />
+          <ProductCard.Buttons className="custom-buttons" />
+        </ProductCard>
+
+        <ProductCard
+          product={product}
+          style={{
+            backgroundColor: '#70d1f8',
+          }}
+        >
+          <ProductImage />
+          <ProductTitle />
+          <ProductButtons />
         </ProductCard>
       </div>
     </div>
