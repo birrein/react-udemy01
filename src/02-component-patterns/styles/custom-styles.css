@@ -6,18 +6,24 @@
   color: white;
 }
 
+.text-bold {
+  font-weight: bold;
+}
+
 .custom-image {
   border-radius: 20px;
   padding: 10px;
   width: calc(100% - 20px);
 }
 
-.text-bold {
-  font-weight: bold;
-}
-
 .custom-buttons button,
 .custom-buttons div {
   color: white;
   border-color: white;
+}
+
+.shopping-cart {
+  position: fixed;
+  right: 10px;
+  top: 0px;
 }
