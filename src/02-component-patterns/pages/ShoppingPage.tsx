@@ -4,17 +4,19 @@ import {
   ProductTitle,
   ProductButtons,
 } from '../components';
-import '../styles/custom-styles.css';
-import { products } from '../data/products';
 import { useShoppingCart } from '../hooks/useShoppingCart';
+
+import { products } from '../data/products';
+import '../styles/custom-styles.css';
 
 export const ShoppingPage = () => {
   const { shoppingCart, onProductCountChange } = useShoppingCart();
 
   return (
     <div>
-      <h1>Shopping Page</h1>
+      <h1>Shopping Store</h1>
       <hr />
+
       <div
         style={{
           display: 'flex',
@@ -41,14 +43,14 @@ export const ShoppingPage = () => {
       </div>
 
       <div className="shopping-cart">
-        {Object.keys(shoppingCart).map((key) => (
+        {Object.entries(shoppingCart).map(([key, product]) => (
           <ProductCard
             key={key}
-            product={shoppingCart[key]}
+            product={product}
             className="bg-dark text-white"
             style={{ width: '100px' }}
             onChange={onProductCountChange}
-            value={shoppingCart[key].count}
+            value={product.count}
           >
             <ProductImage
               className="custom-image"

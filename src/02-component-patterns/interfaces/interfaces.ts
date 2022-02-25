@@ -12,7 +12,7 @@ export interface Product {
 export interface ProductContextProps {
   counter: number;
   product: Product;
-  increasedBy: (value: number) => void;
+  increaseBy: (value: number) => void;
 }
 
 export interface ProductCardHOCProps {
