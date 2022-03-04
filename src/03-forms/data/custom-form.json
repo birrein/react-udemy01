@@ -1,0 +1,78 @@
+[
+  {
+    "type": "input",
+    "name": "firstName",
+    "placeholder": "Manuel",
+    "label": "First Name",
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      },
+      {
+        "type": "minLength",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "type": "input",
+    "name": "lastName",
+    "placeholder": "Marín",
+    "label": "Last Name",
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      }
+    ]
+  },
+  {
+    "type": "email",
+    "name": "email",
+    "placeholder": "manuel.marin.t@gmail.com",
+    "label": "Email",
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      },
+      {
+        "type": "email"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "name": "favoriteGame",
+    "label": "Favorite Game",
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      }
+    ],
+    "options": [
+      {
+        "id": "1",
+        "label": "The Witcher 3"
+      },
+      {
+        "id": "2",
+        "label": "Doom"
+      },
+      {
+        "id": "3",
+        "label": "Quake 2"
+      },
+      {
+        "id": "4",
+        "label": "Counter Strike"
+      },
+      {
+        "id": "5",
+        "label": "League of Legends"
+      }
+    ]
+  }
+]
